@@ -1,0 +1,22 @@
+[package]
+name = "zero-copy"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "zero_copy"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+
+[dependencies]
+anchor-lang = { version = "0.30.0", features = ["init-if-needed"] }
+anchor-spl = { version = "0.30.0", default-features = false, features = ["mint", "spl-token", "token", "token_2022", "associated_token"] }
+bytemuck = { version = "1.4.0", features = ["derive", "min_const_generics"]}
